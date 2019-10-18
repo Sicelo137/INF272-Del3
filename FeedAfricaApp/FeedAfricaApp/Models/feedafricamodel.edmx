@@ -1,0 +1,1148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FEEDAFRICAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BRANCH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CANDIDATE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="COUNRTY" Type="varchar" MaxLength="20" />
+          <Property Name="REGISTARTIONNUMBER" Type="varchar" MaxLength="20" />
+          <Property Name="CONTACTPERSON" Type="varchar" MaxLength="20" />
+          <Property Name="CONTACTNUM" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CLOTHES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SIZE" Type="varchar" MaxLength="20" />
+          <Property Name="TCLOTHES" Type="int" />
+          <Property Name="QUANTITY" Type="int" />
+        </EntityType>
+        <EntityType Name="DONATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DATES" Type="datetime" />
+          <Property Name="DESCRIPTIONS" Type="varchar" MaxLength="100" />
+          <Property Name="DONOR_ID" Type="varchar" MaxLength="20" />
+          <Property Name="AMOUNT" Type="int" />
+          <Property Name="EVEN" Type="int" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DONOR">
+          <Key>
+            <PropertyRef Name="DONOR_ID" />
+          </Key>
+          <Property Name="DONOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="COMPANY" Type="varchar" MaxLength="20" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="20" />
+          <Property Name="PERSON_ID" Type="varchar" MaxLength="20" />
+          <Property Name="TITLE_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="EVEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATES" Type="datetime" />
+          <Property Name="AMOUNTRAISED" Type="int" />
+          <Property Name="TEVENS" Type="int" />
+          <Property Name="VIDEO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="EVENT_IMAGED">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="EID" Type="int" />
+        </EntityType>
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TFOOD" Type="int" />
+          <Property Name="QUANTITY" Type="int" />
+        </EntityType>
+        <EntityType Name="MONEYS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AMOUNT" Type="int" />
+          <Property Name="TMONEYS" Type="int" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="PERSON_ID" />
+          </Key>
+          <Property Name="PERSON_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="SURNAME" Type="varchar" MaxLength="20" />
+          <Property Name="IDENTITY_NUMBER" Type="varchar" MaxLength="13" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="SPONSORSHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AMOUNT" Type="int" />
+          <Property Name="EVEN" Type="int" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="CANDIDDATE" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="SYSTEMUSER">
+          <Key>
+            <PropertyRef Name="MANAGER_ID" />
+          </Key>
+          <Property Name="MANAGER_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PASSWORDS" Type="varchar" MaxLength="5" />
+          <Property Name="ID" Type="int" />
+          <Property Name="PERSON_ID" Type="varchar" MaxLength="20" />
+          <Property Name="SYSTEMUSERTYPE_ID" Type="int" />
+          <Property Name="TITLE_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="SYSTEMUSERTYPE">
+          <Key>
+            <PropertyRef Name="SYSTEMUSERTYPE_ID" />
+          </Key>
+          <Property Name="SYSTEMUSERTYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TCLOTHES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TEVENS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TFOOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TITLE">
+          <Key>
+            <PropertyRef Name="TITLE_ID" />
+          </Key>
+          <Property Name="TITLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TMONEYS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="VOLUNTEER">
+          <Key>
+            <PropertyRef Name="VOLUNTEER_ID" />
+          </Key>
+          <Property Name="VOLUNTEER_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="START" Type="datetime" />
+          <Property Name="ENDS" Type="datetime" />
+          <Property Name="PERSON_ID" Type="varchar" MaxLength="20" />
+          <Property Name="TITLE_ID" Type="int" />
+        </EntityType>
+        <Association Name="FK__CLOTHES__TCLOTHE__276EDEB3">
+          <End Role="TCLOTHES" Type="Self.TCLOTHES" Multiplicity="0..1" />
+          <End Role="CLOTHES" Type="Self.CLOTHES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TCLOTHES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CLOTHES">
+              <PropertyRef Name="TCLOTHES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONATION__EVEN__398D8EEE">
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+          <End Role="DONATION" Type="Self.DONATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DONATION">
+              <PropertyRef Name="EVEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONATION__NAME__38996AB5">
+          <End Role="DONOR" Type="Self.DONOR" Multiplicity="0..1" />
+          <End Role="DONATION" Type="Self.DONATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONOR">
+              <PropertyRef Name="DONOR_ID" />
+            </Principal>
+            <Dependent Role="DONATION">
+              <PropertyRef Name="DONOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONOR__PERSON_ID__22AA2996">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="DONOR" Type="Self.DONOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="DONOR">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONOR__TITLE_ID__21B6055D">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="DONOR" Type="Self.DONOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="DONOR">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EVEN__TEVENS__35BCFE0A">
+          <End Role="TEVENS" Type="Self.TEVENS" Multiplicity="0..1" />
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEVENS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVEN">
+              <PropertyRef Name="TEVENS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EVENT_IMAGE__EID__3C69FB99">
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+          <End Role="EVENT_IMAGED" Type="Self.EVENT_IMAGED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVENT_IMAGED">
+              <PropertyRef Name="EID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FOOD__TFOOD__2C3393D0">
+          <End Role="TFOOD" Type="Self.TFOOD" Multiplicity="0..1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TFOOD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="TFOOD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MONEYS__TMONEYS__30F848ED">
+          <End Role="TMONEYS" Type="Self.TMONEYS" Multiplicity="0..1" />
+          <End Role="MONEYS" Type="Self.MONEYS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TMONEYS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MONEYS">
+              <PropertyRef Name="TMONEYS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SPONSORSH__CANDI__412EB0B6">
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+          <End Role="SPONSORSHIP" Type="Self.SPONSORSHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SPONSORSHIP">
+              <PropertyRef Name="EVEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SYSTEMUSE__SYSTE__1B0907CE">
+          <End Role="SYSTEMUSERTYPE" Type="Self.SYSTEMUSERTYPE" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYSTEMUSERTYPE">
+              <PropertyRef Name="SYSTEMUSERTYPE_ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="SYSTEMUSERTYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SYSTEMUSE__TITLE__182C9B23">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SYSTEMUSE__TITLE__1A14E395">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SYSTEMUSER__ID__1920BF5C">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTEER__PERSO__1ED998B2">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="VOLUNTEER" Type="Self.VOLUNTEER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="VOLUNTEER">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTEER__TITLE__1DE57479">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="VOLUNTEER" Type="Self.VOLUNTEER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="VOLUNTEER">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FEEDAFRICAModelStoreContainer">
+          <EntitySet Name="BRANCH" EntityType="Self.BRANCH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CANDIDATE" EntityType="Self.CANDIDATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLOTHES" EntityType="Self.CLOTHES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONATION" EntityType="Self.DONATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONOR" EntityType="Self.DONOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EVEN" EntityType="Self.EVEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EVENT_IMAGED" EntityType="Self.EVENT_IMAGED" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FOOD" EntityType="Self.FOOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MONEYS" EntityType="Self.MONEYS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSON" EntityType="Self.PERSON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SPONSORSHIP" EntityType="Self.SPONSORSHIP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYSTEMUSER" EntityType="Self.SYSTEMUSER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SYSTEMUSERTYPE" EntityType="Self.SYSTEMUSERTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TCLOTHES" EntityType="Self.TCLOTHES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TEVENS" EntityType="Self.TEVENS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFOOD" EntityType="Self.TFOOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TITLE" EntityType="Self.TITLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TMONEYS" EntityType="Self.TMONEYS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOLUNTEER" EntityType="Self.VOLUNTEER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CLOTHES__TCLOTHE__276EDEB3" Association="Self.FK__CLOTHES__TCLOTHE__276EDEB3">
+            <End Role="TCLOTHES" EntitySet="TCLOTHES" />
+            <End Role="CLOTHES" EntitySet="CLOTHES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONATION__EVEN__398D8EEE" Association="Self.FK__DONATION__EVEN__398D8EEE">
+            <End Role="EVEN" EntitySet="EVEN" />
+            <End Role="DONATION" EntitySet="DONATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONATION__NAME__38996AB5" Association="Self.FK__DONATION__NAME__38996AB5">
+            <End Role="DONOR" EntitySet="DONOR" />
+            <End Role="DONATION" EntitySet="DONATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONOR__PERSON_ID__22AA2996" Association="Self.FK__DONOR__PERSON_ID__22AA2996">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="DONOR" EntitySet="DONOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONOR__TITLE_ID__21B6055D" Association="Self.FK__DONOR__TITLE_ID__21B6055D">
+            <End Role="TITLE" EntitySet="TITLE" />
+            <End Role="DONOR" EntitySet="DONOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EVEN__TEVENS__35BCFE0A" Association="Self.FK__EVEN__TEVENS__35BCFE0A">
+            <End Role="TEVENS" EntitySet="TEVENS" />
+            <End Role="EVEN" EntitySet="EVEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EVENT_IMAGE__EID__3C69FB99" Association="Self.FK__EVENT_IMAGE__EID__3C69FB99">
+            <End Role="EVEN" EntitySet="EVEN" />
+            <End Role="EVENT_IMAGED" EntitySet="EVENT_IMAGED" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FOOD__TFOOD__2C3393D0" Association="Self.FK__FOOD__TFOOD__2C3393D0">
+            <End Role="TFOOD" EntitySet="TFOOD" />
+            <End Role="FOOD" EntitySet="FOOD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MONEYS__TMONEYS__30F848ED" Association="Self.FK__MONEYS__TMONEYS__30F848ED">
+            <End Role="TMONEYS" EntitySet="TMONEYS" />
+            <End Role="MONEYS" EntitySet="MONEYS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SPONSORSH__CANDI__412EB0B6" Association="Self.FK__SPONSORSH__CANDI__412EB0B6">
+            <End Role="EVEN" EntitySet="EVEN" />
+            <End Role="SPONSORSHIP" EntitySet="SPONSORSHIP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SYSTEMUSE__SYSTE__1B0907CE" Association="Self.FK__SYSTEMUSE__SYSTE__1B0907CE">
+            <End Role="SYSTEMUSERTYPE" EntitySet="SYSTEMUSERTYPE" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SYSTEMUSE__TITLE__182C9B23" Association="Self.FK__SYSTEMUSE__TITLE__182C9B23">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SYSTEMUSE__TITLE__1A14E395" Association="Self.FK__SYSTEMUSE__TITLE__1A14E395">
+            <End Role="TITLE" EntitySet="TITLE" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SYSTEMUSER__ID__1920BF5C" Association="Self.FK__SYSTEMUSER__ID__1920BF5C">
+            <End Role="BRANCH" EntitySet="BRANCH" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTEER__PERSO__1ED998B2" Association="Self.FK__VOLUNTEER__PERSO__1ED998B2">
+            <End Role="PERSON" EntitySet="PERSON" />
+            <End Role="VOLUNTEER" EntitySet="VOLUNTEER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTEER__TITLE__1DE57479" Association="Self.FK__VOLUNTEER__TITLE__1DE57479">
+            <End Role="TITLE" EntitySet="TITLE" />
+            <End Role="VOLUNTEER" EntitySet="VOLUNTEER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FEEDAFRICAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BRANCH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SYSTEMUSERs" Relationship="Self.FK__SYSTEMUSER__ID__1920BF5C" FromRole="BRANCH" ToRole="SYSTEMUSER" />
+        </EntityType>
+        <EntityType Name="CANDIDATE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COUNRTY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REGISTARTIONNUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACTPERSON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACTNUM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cloth">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SIZE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TCLOTHES" Type="Int32" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <NavigationProperty Name="TCLOTHE" Relationship="Self.FK__CLOTHES__TCLOTHE__276EDEB3" FromRole="CLOTHES" ToRole="TCLOTHES" />
+        </EntityType>
+        <EntityType Name="DONATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATES" Type="DateTime" Precision="3" />
+          <Property Name="DESCRIPTIONS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DONOR_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AMOUNT" Type="Int32" />
+          <Property Name="EVEN" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EVEN1" Relationship="Self.FK__DONATION__EVEN__398D8EEE" FromRole="DONATION" ToRole="EVEN" />
+          <NavigationProperty Name="DONOR" Relationship="Self.FK__DONATION__NAME__38996AB5" FromRole="DONATION" ToRole="DONOR" />
+        </EntityType>
+        <EntityType Name="DONOR">
+          <Key>
+            <PropertyRef Name="DONOR_ID" />
+          </Key>
+          <Property Name="DONOR_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COMPANY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PERSON_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TITLE_ID" Type="Int32" />
+          <NavigationProperty Name="DONATIONs" Relationship="Self.FK__DONATION__NAME__38996AB5" FromRole="DONOR" ToRole="DONATION" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK__DONOR__PERSON_ID__22AA2996" FromRole="DONOR" ToRole="PERSON" />
+          <NavigationProperty Name="TITLE" Relationship="Self.FK__DONOR__TITLE_ID__21B6055D" FromRole="DONOR" ToRole="TITLE" />
+        </EntityType>
+        <EntityType Name="EVEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATES" Type="DateTime" Precision="3" />
+          <Property Name="AMOUNTRAISED" Type="Int32" />
+          <Property Name="TEVENS" Type="Int32" />
+          <Property Name="VIDEO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DONATIONs" Relationship="Self.FK__DONATION__EVEN__398D8EEE" FromRole="EVEN" ToRole="DONATION" />
+          <NavigationProperty Name="TEVEN" Relationship="Self.FK__EVEN__TEVENS__35BCFE0A" FromRole="EVEN" ToRole="TEVENS" />
+          <NavigationProperty Name="EVENT_IMAGED" Relationship="Self.FK__EVENT_IMAGE__EID__3C69FB99" FromRole="EVEN" ToRole="EVENT_IMAGED" />
+          <NavigationProperty Name="SPONSORSHIPs" Relationship="Self.FK__SPONSORSH__CANDI__412EB0B6" FromRole="EVEN" ToRole="SPONSORSHIP" />
+        </EntityType>
+        <EntityType Name="EVENT_IMAGED">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EID" Type="Int32" />
+          <NavigationProperty Name="EVEN" Relationship="Self.FK__EVENT_IMAGE__EID__3C69FB99" FromRole="EVENT_IMAGED" ToRole="EVEN" />
+        </EntityType>
+        <EntityType Name="FOOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TFOOD" Type="Int32" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <NavigationProperty Name="TFOOD1" Relationship="Self.FK__FOOD__TFOOD__2C3393D0" FromRole="FOOD" ToRole="TFOOD" />
+        </EntityType>
+        <EntityType Name="Money">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AMOUNT" Type="Int32" />
+          <Property Name="TMONEYS" Type="Int32" />
+          <NavigationProperty Name="TMONEY" Relationship="Self.FK__MONEYS__TMONEYS__30F848ED" FromRole="MONEYS" ToRole="TMONEYS" />
+        </EntityType>
+        <EntityType Name="PERSON">
+          <Key>
+            <PropertyRef Name="PERSON_ID" />
+          </Key>
+          <Property Name="PERSON_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IDENTITY_NUMBER" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DONORs" Relationship="Self.FK__DONOR__PERSON_ID__22AA2996" FromRole="PERSON" ToRole="DONOR" />
+          <NavigationProperty Name="SYSTEMUSERs" Relationship="Self.FK__SYSTEMUSE__TITLE__182C9B23" FromRole="PERSON" ToRole="SYSTEMUSER" />
+          <NavigationProperty Name="VOLUNTEERs" Relationship="Self.FK__VOLUNTEER__PERSO__1ED998B2" FromRole="PERSON" ToRole="VOLUNTEER" />
+        </EntityType>
+        <EntityType Name="SPONSORSHIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AMOUNT" Type="Int32" />
+          <Property Name="EVEN" Type="Int32" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CANDIDDATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EVEN1" Relationship="Self.FK__SPONSORSH__CANDI__412EB0B6" FromRole="SPONSORSHIP" ToRole="EVEN" />
+        </EntityType>
+        <EntityType Name="SYSTEMUSER">
+          <Key>
+            <PropertyRef Name="MANAGER_ID" />
+          </Key>
+          <Property Name="MANAGER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORDS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="PERSON_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SYSTEMUSERTYPE_ID" Type="Int32" />
+          <Property Name="TITLE_ID" Type="Int32" />
+          <NavigationProperty Name="BRANCH" Relationship="Self.FK__SYSTEMUSER__ID__1920BF5C" FromRole="SYSTEMUSER" ToRole="BRANCH" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK__SYSTEMUSE__TITLE__182C9B23" FromRole="SYSTEMUSER" ToRole="PERSON" />
+          <NavigationProperty Name="SYSTEMUSERTYPE" Relationship="Self.FK__SYSTEMUSE__SYSTE__1B0907CE" FromRole="SYSTEMUSER" ToRole="SYSTEMUSERTYPE" />
+          <NavigationProperty Name="TITLE" Relationship="Self.FK__SYSTEMUSE__TITLE__1A14E395" FromRole="SYSTEMUSER" ToRole="TITLE" />
+        </EntityType>
+        <EntityType Name="SYSTEMUSERTYPE">
+          <Key>
+            <PropertyRef Name="SYSTEMUSERTYPE_ID" />
+          </Key>
+          <Property Name="SYSTEMUSERTYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SYSTEMUSERs" Relationship="Self.FK__SYSTEMUSE__SYSTE__1B0907CE" FromRole="SYSTEMUSERTYPE" ToRole="SYSTEMUSER" />
+        </EntityType>
+        <EntityType Name="TCLOTHE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLOTHES" Relationship="Self.FK__CLOTHES__TCLOTHE__276EDEB3" FromRole="TCLOTHES" ToRole="CLOTHES" />
+        </EntityType>
+        <EntityType Name="TEVEN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EVENs" Relationship="Self.FK__EVEN__TEVENS__35BCFE0A" FromRole="TEVENS" ToRole="EVEN" />
+        </EntityType>
+        <EntityType Name="TFOOD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FOODs" Relationship="Self.FK__FOOD__TFOOD__2C3393D0" FromRole="TFOOD" ToRole="FOOD" />
+        </EntityType>
+        <EntityType Name="TITLE">
+          <Key>
+            <PropertyRef Name="TITLE_ID" />
+          </Key>
+          <Property Name="TITLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DONORs" Relationship="Self.FK__DONOR__TITLE_ID__21B6055D" FromRole="TITLE" ToRole="DONOR" />
+          <NavigationProperty Name="SYSTEMUSERs" Relationship="Self.FK__SYSTEMUSE__TITLE__1A14E395" FromRole="TITLE" ToRole="SYSTEMUSER" />
+          <NavigationProperty Name="VOLUNTEERs" Relationship="Self.FK__VOLUNTEER__TITLE__1DE57479" FromRole="TITLE" ToRole="VOLUNTEER" />
+        </EntityType>
+        <EntityType Name="TMONEY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MONEYS" Relationship="Self.FK__MONEYS__TMONEYS__30F848ED" FromRole="TMONEYS" ToRole="MONEYS" />
+        </EntityType>
+        <EntityType Name="VOLUNTEER">
+          <Key>
+            <PropertyRef Name="VOLUNTEER_ID" />
+          </Key>
+          <Property Name="VOLUNTEER_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="START" Type="DateTime" Precision="3" />
+          <Property Name="ENDS" Type="DateTime" Precision="3" />
+          <Property Name="PERSON_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TITLE_ID" Type="Int32" />
+          <NavigationProperty Name="PERSON" Relationship="Self.FK__VOLUNTEER__PERSO__1ED998B2" FromRole="VOLUNTEER" ToRole="PERSON" />
+          <NavigationProperty Name="TITLE" Relationship="Self.FK__VOLUNTEER__TITLE__1DE57479" FromRole="VOLUNTEER" ToRole="TITLE" />
+        </EntityType>
+        <Association Name="FK__SYSTEMUSER__ID__1920BF5C">
+          <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CLOTHES__TCLOTHE__276EDEB3">
+          <End Role="TCLOTHES" Type="Self.TCLOTHE" Multiplicity="0..1" />
+          <End Role="CLOTHES" Type="Self.Cloth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TCLOTHES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CLOTHES">
+              <PropertyRef Name="TCLOTHES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONATION__EVEN__398D8EEE">
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+          <End Role="DONATION" Type="Self.DONATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DONATION">
+              <PropertyRef Name="EVEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONATION__NAME__38996AB5">
+          <End Role="DONOR" Type="Self.DONOR" Multiplicity="0..1" />
+          <End Role="DONATION" Type="Self.DONATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONOR">
+              <PropertyRef Name="DONOR_ID" />
+            </Principal>
+            <Dependent Role="DONATION">
+              <PropertyRef Name="DONOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONOR__PERSON_ID__22AA2996">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="DONOR" Type="Self.DONOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="DONOR">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONOR__TITLE_ID__21B6055D">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="DONOR" Type="Self.DONOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="DONOR">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EVEN__TEVENS__35BCFE0A">
+          <End Role="TEVENS" Type="Self.TEVEN" Multiplicity="0..1" />
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TEVENS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVEN">
+              <PropertyRef Name="TEVENS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EVENT_IMAGE__EID__3C69FB99">
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+          <End Role="EVENT_IMAGED" Type="Self.EVENT_IMAGED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVENT_IMAGED">
+              <PropertyRef Name="EID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SPONSORSH__CANDI__412EB0B6">
+          <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+          <End Role="SPONSORSHIP" Type="Self.SPONSORSHIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVEN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SPONSORSHIP">
+              <PropertyRef Name="EVEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FOOD__TFOOD__2C3393D0">
+          <End Role="TFOOD" Type="Self.TFOOD" Multiplicity="0..1" />
+          <End Role="FOOD" Type="Self.FOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TFOOD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FOOD">
+              <PropertyRef Name="TFOOD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MONEYS__TMONEYS__30F848ED">
+          <End Role="TMONEYS" Type="Self.TMONEY" Multiplicity="0..1" />
+          <End Role="MONEYS" Type="Self.Money" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TMONEYS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MONEYS">
+              <PropertyRef Name="TMONEYS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SYSTEMUSE__TITLE__182C9B23">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTEER__PERSO__1ED998B2">
+          <End Role="PERSON" Type="Self.PERSON" Multiplicity="0..1" />
+          <End Role="VOLUNTEER" Type="Self.VOLUNTEER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="VOLUNTEER">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SYSTEMUSE__SYSTE__1B0907CE">
+          <End Role="SYSTEMUSERTYPE" Type="Self.SYSTEMUSERTYPE" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYSTEMUSERTYPE">
+              <PropertyRef Name="SYSTEMUSERTYPE_ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="SYSTEMUSERTYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SYSTEMUSE__TITLE__1A14E395">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="SYSTEMUSER" Type="Self.SYSTEMUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="SYSTEMUSER">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTEER__TITLE__1DE57479">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="VOLUNTEER" Type="Self.VOLUNTEER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="VOLUNTEER">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FEEDAFRICAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BRANCHes" EntityType="Self.BRANCH" />
+          <EntitySet Name="CANDIDATEs" EntityType="Self.CANDIDATE" />
+          <EntitySet Name="CLOTHES" EntityType="Self.Cloth" />
+          <EntitySet Name="DONATIONs" EntityType="Self.DONATION" />
+          <EntitySet Name="DONORs" EntityType="Self.DONOR" />
+          <EntitySet Name="EVENs" EntityType="Self.EVEN" />
+          <EntitySet Name="EVENT_IMAGED" EntityType="Self.EVENT_IMAGED" />
+          <EntitySet Name="FOODs" EntityType="Self.FOOD" />
+          <EntitySet Name="MONEYS" EntityType="Self.Money" />
+          <EntitySet Name="People" EntityType="Self.PERSON" />
+          <EntitySet Name="SPONSORSHIPs" EntityType="Self.SPONSORSHIP" />
+          <EntitySet Name="SYSTEMUSERs" EntityType="Self.SYSTEMUSER" />
+          <EntitySet Name="SYSTEMUSERTYPEs" EntityType="Self.SYSTEMUSERTYPE" />
+          <EntitySet Name="TCLOTHES" EntityType="Self.TCLOTHE" />
+          <EntitySet Name="TEVENS" EntityType="Self.TEVEN" />
+          <EntitySet Name="TFOODs" EntityType="Self.TFOOD" />
+          <EntitySet Name="TITLEs" EntityType="Self.TITLE" />
+          <EntitySet Name="TMONEYS" EntityType="Self.TMONEY" />
+          <EntitySet Name="VOLUNTEERs" EntityType="Self.VOLUNTEER" />
+          <AssociationSet Name="FK__SYSTEMUSER__ID__1920BF5C" Association="Self.FK__SYSTEMUSER__ID__1920BF5C">
+            <End Role="BRANCH" EntitySet="BRANCHes" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CLOTHES__TCLOTHE__276EDEB3" Association="Self.FK__CLOTHES__TCLOTHE__276EDEB3">
+            <End Role="TCLOTHES" EntitySet="TCLOTHES" />
+            <End Role="CLOTHES" EntitySet="CLOTHES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONATION__EVEN__398D8EEE" Association="Self.FK__DONATION__EVEN__398D8EEE">
+            <End Role="EVEN" EntitySet="EVENs" />
+            <End Role="DONATION" EntitySet="DONATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONATION__NAME__38996AB5" Association="Self.FK__DONATION__NAME__38996AB5">
+            <End Role="DONOR" EntitySet="DONORs" />
+            <End Role="DONATION" EntitySet="DONATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONOR__PERSON_ID__22AA2996" Association="Self.FK__DONOR__PERSON_ID__22AA2996">
+            <End Role="PERSON" EntitySet="People" />
+            <End Role="DONOR" EntitySet="DONORs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONOR__TITLE_ID__21B6055D" Association="Self.FK__DONOR__TITLE_ID__21B6055D">
+            <End Role="TITLE" EntitySet="TITLEs" />
+            <End Role="DONOR" EntitySet="DONORs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EVEN__TEVENS__35BCFE0A" Association="Self.FK__EVEN__TEVENS__35BCFE0A">
+            <End Role="TEVENS" EntitySet="TEVENS" />
+            <End Role="EVEN" EntitySet="EVENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EVENT_IMAGE__EID__3C69FB99" Association="Self.FK__EVENT_IMAGE__EID__3C69FB99">
+            <End Role="EVEN" EntitySet="EVENs" />
+            <End Role="EVENT_IMAGED" EntitySet="EVENT_IMAGED" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SPONSORSH__CANDI__412EB0B6" Association="Self.FK__SPONSORSH__CANDI__412EB0B6">
+            <End Role="EVEN" EntitySet="EVENs" />
+            <End Role="SPONSORSHIP" EntitySet="SPONSORSHIPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FOOD__TFOOD__2C3393D0" Association="Self.FK__FOOD__TFOOD__2C3393D0">
+            <End Role="TFOOD" EntitySet="TFOODs" />
+            <End Role="FOOD" EntitySet="FOODs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MONEYS__TMONEYS__30F848ED" Association="Self.FK__MONEYS__TMONEYS__30F848ED">
+            <End Role="TMONEYS" EntitySet="TMONEYS" />
+            <End Role="MONEYS" EntitySet="MONEYS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SYSTEMUSE__TITLE__182C9B23" Association="Self.FK__SYSTEMUSE__TITLE__182C9B23">
+            <End Role="PERSON" EntitySet="People" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTEER__PERSO__1ED998B2" Association="Self.FK__VOLUNTEER__PERSO__1ED998B2">
+            <End Role="PERSON" EntitySet="People" />
+            <End Role="VOLUNTEER" EntitySet="VOLUNTEERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SYSTEMUSE__SYSTE__1B0907CE" Association="Self.FK__SYSTEMUSE__SYSTE__1B0907CE">
+            <End Role="SYSTEMUSERTYPE" EntitySet="SYSTEMUSERTYPEs" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SYSTEMUSE__TITLE__1A14E395" Association="Self.FK__SYSTEMUSE__TITLE__1A14E395">
+            <End Role="TITLE" EntitySet="TITLEs" />
+            <End Role="SYSTEMUSER" EntitySet="SYSTEMUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTEER__TITLE__1DE57479" Association="Self.FK__VOLUNTEER__TITLE__1DE57479">
+            <End Role="TITLE" EntitySet="TITLEs" />
+            <End Role="VOLUNTEER" EntitySet="VOLUNTEERs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FEEDAFRICAModelStoreContainer" CdmEntityContainer="FEEDAFRICAEntities">
+          <EntitySetMapping Name="BRANCHes">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.BRANCH">
+              <MappingFragment StoreEntitySet="BRANCH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CANDIDATEs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.CANDIDATE">
+              <MappingFragment StoreEntitySet="CANDIDATE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="COUNRTY" ColumnName="COUNRTY" />
+                <ScalarProperty Name="REGISTARTIONNUMBER" ColumnName="REGISTARTIONNUMBER" />
+                <ScalarProperty Name="CONTACTPERSON" ColumnName="CONTACTPERSON" />
+                <ScalarProperty Name="CONTACTNUM" ColumnName="CONTACTNUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLOTHES">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.Cloth">
+              <MappingFragment StoreEntitySet="CLOTHES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+                <ScalarProperty Name="TCLOTHES" ColumnName="TCLOTHES" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONATIONs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.DONATION">
+              <MappingFragment StoreEntitySet="DONATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATES" ColumnName="DATES" />
+                <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+                <ScalarProperty Name="DONOR_ID" ColumnName="DONOR_ID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="EVEN" ColumnName="EVEN" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONORs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.DONOR">
+              <MappingFragment StoreEntitySet="DONOR">
+                <ScalarProperty Name="DONOR_ID" ColumnName="DONOR_ID" />
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+                <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.EVEN">
+              <MappingFragment StoreEntitySet="EVEN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATES" ColumnName="DATES" />
+                <ScalarProperty Name="AMOUNTRAISED" ColumnName="AMOUNTRAISED" />
+                <ScalarProperty Name="TEVENS" ColumnName="TEVENS" />
+                <ScalarProperty Name="VIDEO" ColumnName="VIDEO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENT_IMAGED">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.EVENT_IMAGED">
+              <MappingFragment StoreEntitySet="EVENT_IMAGED">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EID" ColumnName="EID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOODs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.FOOD">
+              <MappingFragment StoreEntitySet="FOOD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TFOOD" ColumnName="TFOOD" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MONEYS">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.Money">
+              <MappingFragment StoreEntitySet="MONEYS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="TMONEYS" ColumnName="TMONEYS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.PERSON">
+              <MappingFragment StoreEntitySet="PERSON">
+                <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+                <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPONSORSHIPs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.SPONSORSHIP">
+              <MappingFragment StoreEntitySet="SPONSORSHIP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="EVEN" ColumnName="EVEN" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CANDIDDATE" ColumnName="CANDIDDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYSTEMUSERs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.SYSTEMUSER">
+              <MappingFragment StoreEntitySet="SYSTEMUSER">
+                <ScalarProperty Name="MANAGER_ID" ColumnName="MANAGER_ID" />
+                <ScalarProperty Name="PASSWORDS" ColumnName="PASSWORDS" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+                <ScalarProperty Name="SYSTEMUSERTYPE_ID" ColumnName="SYSTEMUSERTYPE_ID" />
+                <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYSTEMUSERTYPEs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.SYSTEMUSERTYPE">
+              <MappingFragment StoreEntitySet="SYSTEMUSERTYPE">
+                <ScalarProperty Name="SYSTEMUSERTYPE_ID" ColumnName="SYSTEMUSERTYPE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TCLOTHES">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.TCLOTHE">
+              <MappingFragment StoreEntitySet="TCLOTHES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEVENS">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.TEVEN">
+              <MappingFragment StoreEntitySet="TEVENS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFOODs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.TFOOD">
+              <MappingFragment StoreEntitySet="TFOOD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TITLEs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.TITLE">
+              <MappingFragment StoreEntitySet="TITLE">
+                <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TMONEYS">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.TMONEY">
+              <MappingFragment StoreEntitySet="TMONEYS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOLUNTEERs">
+            <EntityTypeMapping TypeName="FEEDAFRICAModel.VOLUNTEER">
+              <MappingFragment StoreEntitySet="VOLUNTEER">
+                <ScalarProperty Name="VOLUNTEER_ID" ColumnName="VOLUNTEER_ID" />
+                <ScalarProperty Name="START" ColumnName="START" />
+                <ScalarProperty Name="ENDS" ColumnName="ENDS" />
+                <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+                <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
