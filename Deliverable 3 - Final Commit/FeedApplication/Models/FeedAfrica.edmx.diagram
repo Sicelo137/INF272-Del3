@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1015d6f48f8f4976a13909dde0d6d38d" Name="Diagram1">
+        <EntityTypeShape EntityType="FEEDAFRICAModel.BRANCH" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.CANDIDATE" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.DONATION" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.DONATION_TYPE" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.DONOR" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.EMPLOYEE" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.EMPLOYEE_TYPE" Width="1.5" PointX="3.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.EVEN" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.SPONSORSHIP" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.TEVEN" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.TITLE" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FEEDAFRICAModel.VOLUNTEER" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__EMPLOYEE__ID__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__SPONSORSH__CANDI__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__DONATION__DONATI__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__DONATION__DONOR___2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__DONATION__EVEN__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__SPONSORSH__DONAT__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__DONOR__TITLE_ID__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__EMPLOYEE__EMPLOY__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__EMPLOYEE__TITLE___173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__EVEN__TEVENS__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__SPONSORSHI__EVEN__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="FEEDAFRICAModel.FK__VOLUNTEER__ENDIN__1B0907CE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

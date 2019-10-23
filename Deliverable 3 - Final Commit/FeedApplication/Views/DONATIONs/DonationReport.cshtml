@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FeedApplication.Models.DONATION>
+
+@{
+    ViewBag.Title = "DonationReport";
+}
+
+<h2>DonationReport</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DATES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AMOUNT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DONATION_TYPE.ITEM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DONOR.COMPANY)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AMOUNT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DONATION_TYPE.ITEM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DONOR.COMPANY)
+        </td>
+      
+    </tr>
+}
+
+</table>

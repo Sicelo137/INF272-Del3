@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FEEDAFRICAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BRANCH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CANDIDATE">
+    <Key>
+      <PropertyRef Name="CANDIDATE_ID" />
+    </Key>
+    <Property Name="CANDIDATE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cANDIDATE_NAME" Type="varchar" MaxLength="20" />
+    <Property Name="COUNRTY" Type="varchar" MaxLength="20" />
+    <Property Name="REGISTARTIONNUMBER" Type="varchar" MaxLength="20" />
+    <Property Name="CONTACTPERSON" Type="varchar" MaxLength="20" />
+    <Property Name="CONTACTNUM" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="DONATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATES" Type="datetime" />
+    <Property Name="DONOR_ID" Type="int" />
+    <Property Name="EVEN" Type="int" />
+    <Property Name="DONATION_TYPE_ID" Type="int" />
+    <Property Name="AMOUNT" Type="int" />
+  </EntityType>
+  <EntityType Name="DONATION_TYPE">
+    <Key>
+      <PropertyRef Name="DONATION_TYPE_ID" />
+    </Key>
+    <Property Name="DONATION_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ITEM" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="DONOR">
+    <Key>
+      <PropertyRef Name="DONOR_ID" />
+    </Key>
+    <Property Name="DONOR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COMPANY" Type="varchar" MaxLength="20" />
+    <Property Name="COUNTRY" Type="varchar" MaxLength="20" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="int" />
+    <Property Name="TITLE_ID" Type="int" />
+    <Property Name="NAMED" Type="varchar" MaxLength="20" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="20" />
+    <Property Name="IDENTITY_NUMBER" Type="varchar" MaxLength="13" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="PHONE" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE" />
+    </Key>
+    <Property Name="EMPLOYEE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PASSWORDS" Type="varchar" MaxLength="5" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="int" />
+    <Property Name="TITLE_ID" Type="int" />
+    <Property Name="ID" Type="int" />
+    <Property Name="NAMED" Type="varchar" MaxLength="20" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="20" />
+    <Property Name="IDENTITY_NUMBER" Type="varchar" MaxLength="13" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="PHONE" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_TYPE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="EVEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATES" Type="datetime" />
+    <Property Name="AMOUNTRAISED" Type="int" />
+    <Property Name="TEVENS" Type="int" />
+    <Property Name="VIDEO" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="SPONSORSHIP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AMOUNT" Type="int" />
+    <Property Name="EVEN" Type="int" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+    <Property Name="SPONSORSHIP_DATE" Type="varchar" MaxLength="20" />
+    <Property Name="CANDIDATE_ID" Type="int" />
+    <Property Name="DONATION_TYPE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TEVENS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TITLE">
+    <Key>
+      <PropertyRef Name="TITLE_ID" />
+    </Key>
+    <Property Name="TITLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="VOLUNTEER">
+    <Key>
+      <PropertyRef Name="EMPLOYEE" />
+    </Key>
+    <Property Name="EMPLOYEE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="int" />
+    <Property Name="TITLE_ID" Type="int" />
+    <Property Name="NAMED" Type="varchar" MaxLength="20" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="20" />
+    <Property Name="IDENTITY_NUMBER" Type="varchar" MaxLength="13" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="PHONE" Type="varchar" MaxLength="10" />
+    <Property Name="STARTING" Type="datetime" />
+    <Property Name="ENDING" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__DONATION__DONATI__5070F446">
+    <End Role="DONATION_TYPE" Type="Self.DONATION_TYPE" Multiplicity="0..1" />
+    <End Role="DONATION" Type="Self.DONATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONATION_TYPE">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Principal>
+      <Dependent Role="DONATION">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONATION__DONOR___5165187F">
+    <End Role="DONOR" Type="Self.DONOR" Multiplicity="0..1" />
+    <End Role="DONATION" Type="Self.DONATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONOR">
+        <PropertyRef Name="DONOR_ID" />
+      </Principal>
+      <Dependent Role="DONATION">
+        <PropertyRef Name="DONOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONATION__EVEN__52593CB8">
+    <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+    <End Role="DONATION" Type="Self.DONATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DONATION">
+        <PropertyRef Name="EVEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONOR__TITLE_ID__44FF419A">
+    <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+    <End Role="DONOR" Type="Self.DONOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="DONOR">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__EMPLOY__3F466844">
+    <End Role="EMPLOYEE_TYPE" Type="Self.EMPLOYEE_TYPE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE_TYPE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__ID__3D5E1FD2">
+    <End Role="BRANCH" Type="Self.BRANCH" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRANCH">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__TITLE___3E52440B">
+    <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EVEN__TEVENS__49C3F6B7">
+    <End Role="TEVENS" Type="Self.TEVENS" Multiplicity="0..1" />
+    <End Role="EVEN" Type="Self.EVEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEVENS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EVEN">
+        <PropertyRef Name="TEVENS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPONSORSH__CANDI__5629CD9C">
+    <End Role="CANDIDATE" Type="Self.CANDIDATE" Multiplicity="0..1" />
+    <End Role="SPONSORSHIP" Type="Self.SPONSORSHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANDIDATE">
+        <PropertyRef Name="CANDIDATE_ID" />
+      </Principal>
+      <Dependent Role="SPONSORSHIP">
+        <PropertyRef Name="CANDIDATE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPONSORSH__DONAT__571DF1D5">
+    <End Role="DONATION_TYPE" Type="Self.DONATION_TYPE" Multiplicity="0..1" />
+    <End Role="SPONSORSHIP" Type="Self.SPONSORSHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONATION_TYPE">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Principal>
+      <Dependent Role="SPONSORSHIP">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPONSORSHI__EVEN__5535A963">
+    <End Role="EVEN" Type="Self.EVEN" Multiplicity="0..1" />
+    <End Role="SPONSORSHIP" Type="Self.SPONSORSHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SPONSORSHIP">
+        <PropertyRef Name="EVEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VOLUNTEER__ENDIN__4222D4EF">
+    <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+    <End Role="VOLUNTEER" Type="Self.VOLUNTEER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="VOLUNTEER">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FEEDAFRICAModelStoreContainer">
+    <EntitySet Name="BRANCH" EntityType="Self.BRANCH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CANDIDATE" EntityType="Self.CANDIDATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONATION" EntityType="Self.DONATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONATION_TYPE" EntityType="Self.DONATION_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONOR" EntityType="Self.DONOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE_TYPE" EntityType="Self.EMPLOYEE_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EVEN" EntityType="Self.EVEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPONSORSHIP" EntityType="Self.SPONSORSHIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEVENS" EntityType="Self.TEVENS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TITLE" EntityType="Self.TITLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VOLUNTEER" EntityType="Self.VOLUNTEER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__DONATION__DONATI__5070F446" Association="Self.FK__DONATION__DONATI__5070F446">
+      <End Role="DONATION_TYPE" EntitySet="DONATION_TYPE" />
+      <End Role="DONATION" EntitySet="DONATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONATION__DONOR___5165187F" Association="Self.FK__DONATION__DONOR___5165187F">
+      <End Role="DONOR" EntitySet="DONOR" />
+      <End Role="DONATION" EntitySet="DONATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONATION__EVEN__52593CB8" Association="Self.FK__DONATION__EVEN__52593CB8">
+      <End Role="EVEN" EntitySet="EVEN" />
+      <End Role="DONATION" EntitySet="DONATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONOR__TITLE_ID__44FF419A" Association="Self.FK__DONOR__TITLE_ID__44FF419A">
+      <End Role="TITLE" EntitySet="TITLE" />
+      <End Role="DONOR" EntitySet="DONOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__EMPLOY__3F466844" Association="Self.FK__EMPLOYEE__EMPLOY__3F466844">
+      <End Role="EMPLOYEE_TYPE" EntitySet="EMPLOYEE_TYPE" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__ID__3D5E1FD2" Association="Self.FK__EMPLOYEE__ID__3D5E1FD2">
+      <End Role="BRANCH" EntitySet="BRANCH" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__TITLE___3E52440B" Association="Self.FK__EMPLOYEE__TITLE___3E52440B">
+      <End Role="TITLE" EntitySet="TITLE" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EVEN__TEVENS__49C3F6B7" Association="Self.FK__EVEN__TEVENS__49C3F6B7">
+      <End Role="TEVENS" EntitySet="TEVENS" />
+      <End Role="EVEN" EntitySet="EVEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPONSORSH__CANDI__5629CD9C" Association="Self.FK__SPONSORSH__CANDI__5629CD9C">
+      <End Role="CANDIDATE" EntitySet="CANDIDATE" />
+      <End Role="SPONSORSHIP" EntitySet="SPONSORSHIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPONSORSH__DONAT__571DF1D5" Association="Self.FK__SPONSORSH__DONAT__571DF1D5">
+      <End Role="DONATION_TYPE" EntitySet="DONATION_TYPE" />
+      <End Role="SPONSORSHIP" EntitySet="SPONSORSHIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPONSORSHI__EVEN__5535A963" Association="Self.FK__SPONSORSHI__EVEN__5535A963">
+      <End Role="EVEN" EntitySet="EVEN" />
+      <End Role="SPONSORSHIP" EntitySet="SPONSORSHIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VOLUNTEER__ENDIN__4222D4EF" Association="Self.FK__VOLUNTEER__ENDIN__4222D4EF">
+      <End Role="TITLE" EntitySet="TITLE" />
+      <End Role="VOLUNTEER" EntitySet="VOLUNTEER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

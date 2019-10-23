@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedApplication", "FeedApplication.csproj", "{95FE6510-1BD6-41B6-81B1-4110CDB47E64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95FE6510-1BD6-41B6-81B1-4110CDB47E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95FE6510-1BD6-41B6-81B1-4110CDB47E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95FE6510-1BD6-41B6-81B1-4110CDB47E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95FE6510-1BD6-41B6-81B1-4110CDB47E64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E822B69-C13C-47FB-9DBF-85BCF13749F9}
+	EndGlobalSection
+EndGlobal

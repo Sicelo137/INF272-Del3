@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FEEDAFRICAModelStoreContainer" CdmEntityContainer="FEEDAFRICAEntities">
+    <EntitySetMapping Name="BRANCHes">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.BRANCH">
+        <MappingFragment StoreEntitySet="BRANCH">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CANDIDATEs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.CANDIDATE">
+        <MappingFragment StoreEntitySet="CANDIDATE">
+          <ScalarProperty Name="CONTACTNUM" ColumnName="CONTACTNUM" />
+          <ScalarProperty Name="CONTACTPERSON" ColumnName="CONTACTPERSON" />
+          <ScalarProperty Name="REGISTARTIONNUMBER" ColumnName="REGISTARTIONNUMBER" />
+          <ScalarProperty Name="COUNRTY" ColumnName="COUNRTY" />
+          <ScalarProperty Name="cANDIDATE_NAME" ColumnName="cANDIDATE_NAME" />
+          <ScalarProperty Name="CANDIDATE_ID" ColumnName="CANDIDATE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONATIONs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.DONATION">
+        <MappingFragment StoreEntitySet="DONATION">
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="DONATION_TYPE_ID" ColumnName="DONATION_TYPE_ID" />
+          <ScalarProperty Name="EVEN" ColumnName="EVEN" />
+          <ScalarProperty Name="DONOR_ID" ColumnName="DONOR_ID" />
+          <ScalarProperty Name="DATES" ColumnName="DATES" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONATION_TYPE">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.DONATION_TYPE">
+        <MappingFragment StoreEntitySet="DONATION_TYPE">
+          <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+          <ScalarProperty Name="DONATION_TYPE_ID" ColumnName="DONATION_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONORs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.DONOR">
+        <MappingFragment StoreEntitySet="DONOR">
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="NAMED" ColumnName="NAMED" />
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+          <ScalarProperty Name="DONOR_ID" ColumnName="DONOR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="NAMED" ColumnName="NAMED" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+          <ScalarProperty Name="PASSWORDS" ColumnName="PASSWORDS" />
+          <ScalarProperty Name="EMPLOYEE1" ColumnName="EMPLOYEE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEE_TYPE">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.EMPLOYEE_TYPE">
+        <MappingFragment StoreEntitySet="EMPLOYEE_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.EVEN">
+        <MappingFragment StoreEntitySet="EVEN">
+          <ScalarProperty Name="VIDEO" ColumnName="VIDEO" />
+          <ScalarProperty Name="TEVENS" ColumnName="TEVENS" />
+          <ScalarProperty Name="AMOUNTRAISED" ColumnName="AMOUNTRAISED" />
+          <ScalarProperty Name="DATES" ColumnName="DATES" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPONSORSHIPs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.SPONSORSHIP">
+        <MappingFragment StoreEntitySet="SPONSORSHIP">
+          <ScalarProperty Name="DONATION_TYPE_ID" ColumnName="DONATION_TYPE_ID" />
+          <ScalarProperty Name="CANDIDATE_ID" ColumnName="CANDIDATE_ID" />
+          <ScalarProperty Name="SPONSORSHIP_DATE" ColumnName="SPONSORSHIP_DATE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="EVEN" ColumnName="EVEN" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TEVENS">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.TEVEN">
+        <MappingFragment StoreEntitySet="TEVENS">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TITLEs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.TITLE">
+        <MappingFragment StoreEntitySet="TITLE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOLUNTEERs">
+      <EntityTypeMapping TypeName="FEEDAFRICAModel.VOLUNTEER">
+        <MappingFragment StoreEntitySet="VOLUNTEER">
+          <ScalarProperty Name="ENDING" ColumnName="ENDING" />
+          <ScalarProperty Name="STARTING" ColumnName="STARTING" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="IDENTITY_NUMBER" ColumnName="IDENTITY_NUMBER" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="NAMED" ColumnName="NAMED" />
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+          <ScalarProperty Name="EMPLOYEE" ColumnName="EMPLOYEE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

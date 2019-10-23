@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FEEDAFRICAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FEEDAFRICAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BRANCHes" EntityType="FEEDAFRICAModel.BRANCH" />
+    <EntitySet Name="CANDIDATEs" EntityType="FEEDAFRICAModel.CANDIDATE" />
+    <EntitySet Name="DONATIONs" EntityType="FEEDAFRICAModel.DONATION" />
+    <EntitySet Name="DONATION_TYPE" EntityType="FEEDAFRICAModel.DONATION_TYPE" />
+    <EntitySet Name="DONORs" EntityType="FEEDAFRICAModel.DONOR" />
+    <EntitySet Name="EMPLOYEEs" EntityType="FEEDAFRICAModel.EMPLOYEE" />
+    <EntitySet Name="EMPLOYEE_TYPE" EntityType="FEEDAFRICAModel.EMPLOYEE_TYPE" />
+    <EntitySet Name="EVENs" EntityType="FEEDAFRICAModel.EVEN" />
+    <EntitySet Name="SPONSORSHIPs" EntityType="FEEDAFRICAModel.SPONSORSHIP" />
+    <EntitySet Name="TEVENS" EntityType="FEEDAFRICAModel.TEVEN" />
+    <EntitySet Name="TITLEs" EntityType="FEEDAFRICAModel.TITLE" />
+    <EntitySet Name="VOLUNTEERs" EntityType="FEEDAFRICAModel.VOLUNTEER" />
+    <AssociationSet Name="FK__EMPLOYEE__ID__3D5E1FD2" Association="FEEDAFRICAModel.FK__EMPLOYEE__ID__3D5E1FD2">
+      <End Role="BRANCH" EntitySet="BRANCHes" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPONSORSH__CANDI__5629CD9C" Association="FEEDAFRICAModel.FK__SPONSORSH__CANDI__5629CD9C">
+      <End Role="CANDIDATE" EntitySet="CANDIDATEs" />
+      <End Role="SPONSORSHIP" EntitySet="SPONSORSHIPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONATION__DONATI__5070F446" Association="FEEDAFRICAModel.FK__DONATION__DONATI__5070F446">
+      <End Role="DONATION_TYPE" EntitySet="DONATION_TYPE" />
+      <End Role="DONATION" EntitySet="DONATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONATION__DONOR___5165187F" Association="FEEDAFRICAModel.FK__DONATION__DONOR___5165187F">
+      <End Role="DONOR" EntitySet="DONORs" />
+      <End Role="DONATION" EntitySet="DONATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONATION__EVEN__52593CB8" Association="FEEDAFRICAModel.FK__DONATION__EVEN__52593CB8">
+      <End Role="EVEN" EntitySet="EVENs" />
+      <End Role="DONATION" EntitySet="DONATIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPONSORSH__DONAT__571DF1D5" Association="FEEDAFRICAModel.FK__SPONSORSH__DONAT__571DF1D5">
+      <End Role="DONATION_TYPE" EntitySet="DONATION_TYPE" />
+      <End Role="SPONSORSHIP" EntitySet="SPONSORSHIPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONOR__TITLE_ID__44FF419A" Association="FEEDAFRICAModel.FK__DONOR__TITLE_ID__44FF419A">
+      <End Role="TITLE" EntitySet="TITLEs" />
+      <End Role="DONOR" EntitySet="DONORs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__EMPLOY__3F466844" Association="FEEDAFRICAModel.FK__EMPLOYEE__EMPLOY__3F466844">
+      <End Role="EMPLOYEE_TYPE" EntitySet="EMPLOYEE_TYPE" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__TITLE___3E52440B" Association="FEEDAFRICAModel.FK__EMPLOYEE__TITLE___3E52440B">
+      <End Role="TITLE" EntitySet="TITLEs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EVEN__TEVENS__49C3F6B7" Association="FEEDAFRICAModel.FK__EVEN__TEVENS__49C3F6B7">
+      <End Role="TEVEN" EntitySet="TEVENS" />
+      <End Role="EVEN" EntitySet="EVENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPONSORSHI__EVEN__5535A963" Association="FEEDAFRICAModel.FK__SPONSORSHI__EVEN__5535A963">
+      <End Role="EVEN" EntitySet="EVENs" />
+      <End Role="SPONSORSHIP" EntitySet="SPONSORSHIPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VOLUNTEER__ENDIN__4222D4EF" Association="FEEDAFRICAModel.FK__VOLUNTEER__ENDIN__4222D4EF">
+      <End Role="TITLE" EntitySet="TITLEs" />
+      <End Role="VOLUNTEER" EntitySet="VOLUNTEERs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BRANCH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="FEEDAFRICAModel.FK__EMPLOYEE__ID__3D5E1FD2" FromRole="BRANCH" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="CANDIDATE">
+    <Key>
+      <PropertyRef Name="CANDIDATE_ID" />
+    </Key>
+    <Property Name="CANDIDATE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cANDIDATE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="COUNRTY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="REGISTARTIONNUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACTPERSON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACTNUM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SPONSORSHIPs" Relationship="FEEDAFRICAModel.FK__SPONSORSH__CANDI__5629CD9C" FromRole="CANDIDATE" ToRole="SPONSORSHIP" />
+  </EntityType>
+  <EntityType Name="DONATION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATES" Type="DateTime" Precision="3" />
+    <Property Name="DONOR_ID" Type="Int32" />
+    <Property Name="EVEN" Type="Int32" />
+    <Property Name="DONATION_TYPE_ID" Type="Int32" />
+    <Property Name="AMOUNT" Type="Int32" />
+    <NavigationProperty Name="DONATION_TYPE" Relationship="FEEDAFRICAModel.FK__DONATION__DONATI__5070F446" FromRole="DONATION" ToRole="DONATION_TYPE" />
+    <NavigationProperty Name="DONOR" Relationship="FEEDAFRICAModel.FK__DONATION__DONOR___5165187F" FromRole="DONATION" ToRole="DONOR" />
+    <NavigationProperty Name="EVEN1" Relationship="FEEDAFRICAModel.FK__DONATION__EVEN__52593CB8" FromRole="DONATION" ToRole="EVEN" />
+  </EntityType>
+  <EntityType Name="DONATION_TYPE">
+    <Key>
+      <PropertyRef Name="DONATION_TYPE_ID" />
+    </Key>
+    <Property Name="DONATION_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ITEM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DONATIONs" Relationship="FEEDAFRICAModel.FK__DONATION__DONATI__5070F446" FromRole="DONATION_TYPE" ToRole="DONATION" />
+    <NavigationProperty Name="SPONSORSHIPs" Relationship="FEEDAFRICAModel.FK__SPONSORSH__DONAT__571DF1D5" FromRole="DONATION_TYPE" ToRole="SPONSORSHIP" />
+  </EntityType>
+  <EntityType Name="DONOR">
+    <Key>
+      <PropertyRef Name="DONOR_ID" />
+    </Key>
+    <Property Name="DONOR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="COMPANY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" />
+    <Property Name="TITLE_ID" Type="Int32" />
+    <Property Name="NAMED" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTITY_NUMBER" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DONATIONs" Relationship="FEEDAFRICAModel.FK__DONATION__DONOR___5165187F" FromRole="DONOR" ToRole="DONATION" />
+    <NavigationProperty Name="TITLE" Relationship="FEEDAFRICAModel.FK__DONOR__TITLE_ID__44FF419A" FromRole="DONOR" ToRole="TITLE" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE1" />
+    </Key>
+    <Property Name="EMPLOYEE1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PASSWORDS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" />
+    <Property Name="TITLE_ID" Type="Int32" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="NAMED" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTITY_NUMBER" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BRANCH" Relationship="FEEDAFRICAModel.FK__EMPLOYEE__ID__3D5E1FD2" FromRole="EMPLOYEE" ToRole="BRANCH" />
+    <NavigationProperty Name="EMPLOYEE_TYPE" Relationship="FEEDAFRICAModel.FK__EMPLOYEE__EMPLOY__3F466844" FromRole="EMPLOYEE" ToRole="EMPLOYEE_TYPE" />
+    <NavigationProperty Name="TITLE" Relationship="FEEDAFRICAModel.FK__EMPLOYEE__TITLE___3E52440B" FromRole="EMPLOYEE" ToRole="TITLE" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_TYPE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="FEEDAFRICAModel.FK__EMPLOYEE__EMPLOY__3F466844" FromRole="EMPLOYEE_TYPE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="EVEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATES" Type="DateTime" Precision="3" />
+    <Property Name="AMOUNTRAISED" Type="Int32" />
+    <Property Name="TEVENS" Type="Int32" />
+    <Property Name="VIDEO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DONATIONs" Relationship="FEEDAFRICAModel.FK__DONATION__EVEN__52593CB8" FromRole="EVEN" ToRole="DONATION" />
+    <NavigationProperty Name="TEVEN" Relationship="FEEDAFRICAModel.FK__EVEN__TEVENS__49C3F6B7" FromRole="EVEN" ToRole="TEVEN" />
+    <NavigationProperty Name="SPONSORSHIPs" Relationship="FEEDAFRICAModel.FK__SPONSORSHI__EVEN__5535A963" FromRole="EVEN" ToRole="SPONSORSHIP" />
+  </EntityType>
+  <EntityType Name="SPONSORSHIP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AMOUNT" Type="Int32" />
+    <Property Name="EVEN" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SPONSORSHIP_DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CANDIDATE_ID" Type="Int32" />
+    <Property Name="DONATION_TYPE_ID" Type="Int32" />
+    <NavigationProperty Name="CANDIDATE" Relationship="FEEDAFRICAModel.FK__SPONSORSH__CANDI__5629CD9C" FromRole="SPONSORSHIP" ToRole="CANDIDATE" />
+    <NavigationProperty Name="DONATION_TYPE" Relationship="FEEDAFRICAModel.FK__SPONSORSH__DONAT__571DF1D5" FromRole="SPONSORSHIP" ToRole="DONATION_TYPE" />
+    <NavigationProperty Name="EVEN1" Relationship="FEEDAFRICAModel.FK__SPONSORSHI__EVEN__5535A963" FromRole="SPONSORSHIP" ToRole="EVEN" />
+  </EntityType>
+  <EntityType Name="TEVEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EVENs" Relationship="FEEDAFRICAModel.FK__EVEN__TEVENS__49C3F6B7" FromRole="TEVEN" ToRole="EVEN" />
+  </EntityType>
+  <EntityType Name="TITLE">
+    <Key>
+      <PropertyRef Name="TITLE_ID" />
+    </Key>
+    <Property Name="TITLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DONORs" Relationship="FEEDAFRICAModel.FK__DONOR__TITLE_ID__44FF419A" FromRole="TITLE" ToRole="DONOR" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="FEEDAFRICAModel.FK__EMPLOYEE__TITLE___3E52440B" FromRole="TITLE" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="VOLUNTEERs" Relationship="FEEDAFRICAModel.FK__VOLUNTEER__ENDIN__4222D4EF" FromRole="TITLE" ToRole="VOLUNTEER" />
+  </EntityType>
+  <EntityType Name="VOLUNTEER">
+    <Key>
+      <PropertyRef Name="EMPLOYEE" />
+    </Key>
+    <Property Name="EMPLOYEE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" />
+    <Property Name="TITLE_ID" Type="Int32" />
+    <Property Name="NAMED" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTITY_NUMBER" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="STARTING" Type="DateTime" Precision="3" />
+    <Property Name="ENDING" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TITLE" Relationship="FEEDAFRICAModel.FK__VOLUNTEER__ENDIN__4222D4EF" FromRole="VOLUNTEER" ToRole="TITLE" />
+  </EntityType>
+  <Association Name="FK__EMPLOYEE__ID__3D5E1FD2">
+    <End Type="FEEDAFRICAModel.BRANCH" Role="BRANCH" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRANCH">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPONSORSH__CANDI__5629CD9C">
+    <End Type="FEEDAFRICAModel.CANDIDATE" Role="CANDIDATE" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.SPONSORSHIP" Role="SPONSORSHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANDIDATE">
+        <PropertyRef Name="CANDIDATE_ID" />
+      </Principal>
+      <Dependent Role="SPONSORSHIP">
+        <PropertyRef Name="CANDIDATE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONATION__DONATI__5070F446">
+    <End Type="FEEDAFRICAModel.DONATION_TYPE" Role="DONATION_TYPE" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.DONATION" Role="DONATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONATION_TYPE">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Principal>
+      <Dependent Role="DONATION">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONATION__DONOR___5165187F">
+    <End Type="FEEDAFRICAModel.DONOR" Role="DONOR" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.DONATION" Role="DONATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONOR">
+        <PropertyRef Name="DONOR_ID" />
+      </Principal>
+      <Dependent Role="DONATION">
+        <PropertyRef Name="DONOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONATION__EVEN__52593CB8">
+    <End Type="FEEDAFRICAModel.EVEN" Role="EVEN" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.DONATION" Role="DONATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DONATION">
+        <PropertyRef Name="EVEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPONSORSH__DONAT__571DF1D5">
+    <End Type="FEEDAFRICAModel.DONATION_TYPE" Role="DONATION_TYPE" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.SPONSORSHIP" Role="SPONSORSHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONATION_TYPE">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Principal>
+      <Dependent Role="SPONSORSHIP">
+        <PropertyRef Name="DONATION_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONOR__TITLE_ID__44FF419A">
+    <End Type="FEEDAFRICAModel.TITLE" Role="TITLE" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.DONOR" Role="DONOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="DONOR">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__EMPLOY__3F466844">
+    <End Type="FEEDAFRICAModel.EMPLOYEE_TYPE" Role="EMPLOYEE_TYPE" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE_TYPE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__TITLE___3E52440B">
+    <End Type="FEEDAFRICAModel.TITLE" Role="TITLE" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EVEN__TEVENS__49C3F6B7">
+    <End Type="FEEDAFRICAModel.TEVEN" Role="TEVEN" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.EVEN" Role="EVEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TEVEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EVEN">
+        <PropertyRef Name="TEVENS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPONSORSHI__EVEN__5535A963">
+    <End Type="FEEDAFRICAModel.EVEN" Role="EVEN" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.SPONSORSHIP" Role="SPONSORSHIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVEN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SPONSORSHIP">
+        <PropertyRef Name="EVEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VOLUNTEER__ENDIN__4222D4EF">
+    <End Type="FEEDAFRICAModel.TITLE" Role="TITLE" Multiplicity="0..1" />
+    <End Type="FEEDAFRICAModel.VOLUNTEER" Role="VOLUNTEER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="VOLUNTEER">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
